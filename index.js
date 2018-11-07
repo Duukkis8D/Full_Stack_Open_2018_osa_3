@@ -40,6 +40,17 @@ app.get('/api/persons', (req, res) => {
     res.json(persons);
 });
 
+app.get('/api/persons/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const person = persons.find(person => person.id === id);
+
+    if (person) {
+        res.json(person);
+    } else {
+        res.status(404).send('Person not found');
+    }
+});
+
 app.get('/info', (req, res) => {
     res.send(info.numberOfPersons + '<br></br>' + info.date);
 });
