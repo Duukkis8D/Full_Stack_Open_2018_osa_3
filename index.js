@@ -63,6 +63,14 @@ app.delete('/api/persons/:id', (req, res) => {
 });
 
 app.post('/api/persons', (req, res) => {
+    if (req.body.name === undefined) {
+        return res.status(400).json({ error: 'please provide a name' });
+    } else if (req.body.phone === undefined) {
+        return res.status(400).json({ error: 'please provide a phone number' });
+    } else if (persons.find( person => person.name === req.body.name ) !== undefined) {
+        return res.status(400).json({ error: 'please provide a unique name' });
+    }
+
     const id = Math.floor( Math.random() * Math.floor(1000000) );
     const person = req.body;
     person.id = id;

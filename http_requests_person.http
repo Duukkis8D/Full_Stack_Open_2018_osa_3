@@ -14,3 +14,21 @@ GET http://localhost:3001/api/persons
 Accept: application/json
 
 ###
+
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "phone": "050-249912435"
+}
+
+###
+
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Ulla Leppänen"
+}
+
+###
