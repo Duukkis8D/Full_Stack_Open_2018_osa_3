@@ -1,0 +1,16 @@
+### Send POST request with json body
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Ulla Leppänen",
+  "phone": "050-249912435"
+}
+
+###
+
+### Get request with a header
+GET http://localhost:3001/api/persons
+Accept: application/json
+
+###
