@@ -55,6 +55,9 @@ app.get('/api/persons', (req, res) => {
         .find({})
         .then(persons => {
             res.json(persons.map(formatPerson));
+        })
+        .catch(error => {
+            console.log(error);
         });
 });
 
@@ -98,6 +101,9 @@ app.post('/api/persons', (req, res) => {
         .save()
         .then(savedPerson => {
             res.json(formatPerson(savedPerson));
+        })
+        .catch(error => {
+            console.log(error);
         });
 });
 
