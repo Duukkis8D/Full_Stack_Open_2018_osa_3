@@ -89,12 +89,16 @@ app.post('/api/persons', (req, res) => {
         return res.status(400).json({ error: 'please provide a unique name' });
     }
 
-    const id = Math.floor( Math.random() * Math.floor(1000000) );
-    const person = req.body;
-    person.id = id;
-    persons = persons.concat(person);
+    const person = new Person({
+        name: req.body.name,
+        phone: req.body.phone
+    });
 
-    res.json(person);
+    person
+        .save()
+        .then(savedPerson => {
+            res.json(formatPerson(savedPerson));
+        });
 });
 
 const PORT = process.env.PORT || 3001;
