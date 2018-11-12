@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const Person = require('./models/person');
 
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
@@ -37,12 +38,24 @@ let info = {
     date: new Date()
 };
 
+const formatPerson = (person) => {
+    return {
+        name: person.name,
+        phone: person.phone,
+        id: person._id
+    }
+};
+
 app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>');
 });
 
 app.get('/api/persons', (req, res) => {
-    res.json(persons);
+    Person
+        .find({})
+        .then(persons => {
+            res.json(persons.map(formatPerson));
+        });
 });
 
 app.get('/api/persons/:id', (req, res) => {
@@ -84,7 +97,7 @@ app.post('/api/persons', (req, res) => {
     res.json(person);
 });
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
