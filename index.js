@@ -58,6 +58,7 @@ app.get('/api/persons', (req, res) => {
         })
         .catch(error => {
             console.log(error);
+            res.status(404).end();
         });
 });
 
@@ -79,11 +80,12 @@ app.get('/info', (req, res) => {
 app.delete('/api/persons/:id', (req, res) => {
     Person
         .deleteOne({ _id: req.params.id })
+        .then(result => {
+            res.status(204).end();
+        })
         .catch(error => {
-            console.log(error);
+            res.status(400).send( { error: 'malformatted id' } );
         });
-
-    res.status(204).end();
 });
 
 app.post('/api/persons', (req, res) => {

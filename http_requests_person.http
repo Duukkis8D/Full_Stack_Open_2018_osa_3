@@ -1,4 +1,55 @@
-### Send POST request with json body
+#######################
+### Development app ###
+#######################
+
+### Send a person
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Ulla Leppänen",
+  "phone": "050-249912435"
+}
+
+###
+
+### Get all persons
+GET http://localhost:3001/api/persons
+Accept: application/json
+
+###
+
+### Send only phone number (no name)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "phone": "050-249912435"
+}
+
+###
+
+### Send only name (no phone number)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Ulla Leppänen"
+}
+
+###
+
+### Delete spesific person
+DELETE http://localhost:3001/api/persons/5be9f9cde25a210e38fac8b3
+Content-Type: application/json
+
+###
+
+##################
+### Heroku app ###
+##################
+
+### Send a person
 POST https://rocky-sands-15953.herokuapp.com/api/persons
 Content-Type: application/json
 
@@ -9,12 +60,13 @@ Content-Type: application/json
 
 ###
 
-### Get request with a header
+### Get all persons
 GET https://rocky-sands-15953.herokuapp.com/api/persons
 Accept: application/json
 
 ###
 
+### Send only phone number (no name)
 POST https://rocky-sands-15953.herokuapp.com/api/persons
 Content-Type: application/json
 
@@ -24,6 +76,7 @@ Content-Type: application/json
 
 ###
 
+### Send only name (no phone number)
 POST https://rocky-sands-15953.herokuapp.com/api/persons
 Content-Type: application/json
 
@@ -33,6 +86,7 @@ Content-Type: application/json
 
 ###
 
+### Delete spesific person
 DELETE https://rocky-sands-15953.herokuapp.com/api/persons/483470
 Content-Type: application/json
 
