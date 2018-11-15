@@ -12,24 +12,24 @@ app.use(express.static('build'));
 
 let persons = [
     {
-        "name": "Arto Hellas",
-        "phone": "040-123456",
-        "id": 1
+        'name': 'Arto Hellas',
+        'phone': '040-123456',
+        'id': 1
     },
     {
-        "name": "Martti Tienari",
-        "phone": "040-123456",
-        "id": 2
+        'name': 'Martti Tienari',
+        'phone': '040-123456',
+        'id': 2
     },
     {
-        "name": "Arto Järvinen",
-        "phone": "040-123456",
-        "id": 3
+        'name': 'Arto Järvinen',
+        'phone': '040-123456',
+        'id': 3
     },
     {
-        "name": "Lea Kutvonen",
-        "phone": "040-123456",
-        "id": 4
+        'name': 'Lea Kutvonen',
+        'phone': '040-123456',
+        'id': 4
     }
 ];
 
@@ -43,7 +43,7 @@ const formatPerson = (person) => {
         name: person.name,
         phone: person.phone,
         id: person._id
-    }
+    };
 };
 
 app.get('/', (req, res) => {
