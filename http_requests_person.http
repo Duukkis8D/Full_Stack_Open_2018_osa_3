@@ -40,7 +40,7 @@ Content-Type: application/json
 ###
 
 ### Delete spesific person
-DELETE http://localhost:3001/api/persons/5be9f9cde25a210e38fac8b3
+DELETE http://localhost:3001/api/persons/5beddba29cec4d0a9863f335
 Content-Type: application/json
 
 ###
@@ -87,7 +87,7 @@ Content-Type: application/json
 ###
 
 ### Delete spesific person
-DELETE https://rocky-sands-15953.herokuapp.com/api/persons/483470
+DELETE https://rocky-sands-15953.herokuapp.com/api/persons/5beddcb47a9fa70004691b53
 Content-Type: application/json
 
 ###
