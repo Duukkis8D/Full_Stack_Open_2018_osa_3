@@ -7,7 +7,7 @@ if ( process.env.NODE_ENV !== 'production' ) {
 
 const uri = process.env.MONGOLAB_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true });
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
 
 const personSchema = new mongoose.Schema({
     name: String,
