@@ -80,8 +80,8 @@ app.get('/info', (req, res) => {
 app.delete('/api/persons/:id', (req, res) => {
     Person
         .deleteOne({ _id: req.params.id })
-        .then( res.status(204).end() )
-        .catch( res.status(400).send( { error: 'malformatted id' } ));
+        .then( () => res.status(204).end() )
+        .catch( () => res.status(400).send( { error: 'malformatted id' } ));
 });
 
 app.post('/api/persons', (req, res) => {
